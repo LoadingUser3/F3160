@@ -1,0 +1,65 @@
+import time
+import os
+import multiprocessing
+
+
+MIN_PID = 300
+
+MAX_PID = 5000
+
+arrPID = [4700]
+
+pid = None
+
+bitmap = None
+
+def allocate_map():
+    j = 0
+    i = None
+    for i in range(MIN_PID, MAX_PID):
+        print("Map")
+        arrPID[j].pid = i
+        arrPID[j].bitmap = 0
+        j+1
+        i+1
+    if(i == MIN_PID & j == 4700):
+        return 1
+    else:
+        return -1
+
+def allocate_pid():
+
+    for i in range(MIN_PID, MAX_PID):
+        if(arrPID[j].bitmap == 0):
+            print("PID")
+            arrPID[j].pid = i
+            arrPID[j].bitmap = 1
+            return i
+            break
+    return -1
+
+
+def release_pid():
+    i = 0
+    #if(pid<500):
+     #   print("Invalid ID! PID value must be above 500!")
+    for i in range(0,4700):
+        if(arrPID[i].pid == pid):
+            print("Release")
+            arrPID[i].bitmap = 0
+            
+def Main():
+    mapping = allocate_map()
+    if(mapping == 1):
+        id = 0
+        i = 0
+        while (i<15):
+            val = allocate_pid()
+            print("Process PID {}".format.getpid())
+            i+1
+    #allocate_pid()
+    #release_pid()
+
+
+Main();
+        
